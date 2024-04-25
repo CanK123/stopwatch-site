@@ -10,13 +10,15 @@
       <div class="stopwatch-container">
         <div id="display" class="display">00:00,00</div>
         <div class="btn-container">
-          <button class="btn grey" id="res-button">Lap</button>
+          <button class="btn grey" id="res-button" onclick="lapReset()">
+            Lap
+          </button>
           <button class="btn green" id="start-button" onclick="beginPause()">
             Start
           </button>
         </div>
         <hr />
-        <div class="lap-container"></div>
+        <div id="lap-container" class="lap-container"></div>
       </div>
     </main>
     <script src="script.js"></script>
