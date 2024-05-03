@@ -21,6 +21,8 @@ main {
   height: 70%;
   max-width: 630px;
   max-height: 720px;
+  min-width: 360px;
+  min-height: 480px;
   border-radius: 3px;
   display: flex;
   flex-direction: column;
@@ -51,7 +53,7 @@ main {
   height: 4em;
   border-radius: 50%;
   border: none;
-  margin: 1rem 4rem;
+  margin: 2% 10%;
   cursor: pointer;
   font: 1em sans-serif;
 }
@@ -76,6 +78,7 @@ main {
   display: flex;
   margin-top: 5%;
   flex-direction: column;
+  overflow: scroll;
 }
 .stopwatch-container > .lap-container > .lap {
   width: 100%;

@@ -9,6 +9,8 @@ class Stopwatch {
     this.accumulatedTime = 0;
     this.intervalId;
     this.prevTime = 0;
+    this.start = 0;
+    this.stop = 0;
   }
 }
 const stopwatch = createStopwatch();
@@ -63,10 +65,12 @@ function createStopwatch() {
     stButton.style.color = "red";
     resButton.textContent = "Lap";
     stButton.textContent = "Stop";
+    stopwatch.start != 0 ? (stopwatch.stop = Date.now()) : 0;
   }
   function pause() {
     clearInterval(intervalId);
     stopwatch.isActive = false;
+    stopwatch.start = Date.now();
     stopwatch.accumulatedTime =
       minutes * 60 * 1000 + seconds * 1000 + miliseconds * 10;
     stButton.textContent = "Start";
@@ -85,9 +89,11 @@ function createStopwatch() {
     lap++;
     Span1.textContent = `Lap ${lap}`;
     let elapsedTime =
-      stopwatch.startTime > stopwatch.prevTime
+      stopwatch.prevTime <= 0
         ? Date.now() - stopwatch.startTime
-        : Date.now() - stopwatch.prevTime;
+        : Date.now() - stopwatch.prevTime - (stopwatch.stop - stopwatch.start);
+    stopwatch.start = 0;
+    stopwatch.stop = 0;
     stopwatch.prevTime = Date.now();
     Span2.textContent = `${Math.floor(elapsedTime / (60 * 1000))
       .toString()
